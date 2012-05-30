@@ -5,6 +5,7 @@ Release:    1
 Group:      Applications/System
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.bz2
+Source1001: packaging/rfkill.manifest 
 
 %description
 simple /dev/rfkill userspace tool
@@ -13,6 +14,7 @@ simple /dev/rfkill userspace tool
 %setup -q 
 
 %build
+cp %{SOURCE1001} .
 
 make %{?jobs:-j%jobs}
 
@@ -23,6 +25,7 @@ rm -rf %{buildroot}
 %remove_docs
 
 %files
+%manifest rfkill.manifest
 %defattr(-,root,root,-)
 /usr/sbin/rfkill
 %{_datadir}/man/man8/rfkill.8.gz
