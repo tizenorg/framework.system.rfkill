@@ -25,5 +25,4 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 /usr/sbin/rfkill
-%{_datadir}/man/man8/rfkill.8.gz
 
