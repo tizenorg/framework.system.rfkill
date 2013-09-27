@@ -17,12 +17,15 @@ simple /dev/rfkill userspace tool
 make %{?jobs:-j%jobs}
 
 %install
+mkdir -p %{bildroot}/usr/share/license
+cp COPYING %{buildroot}/usr/share/license/%{name}
 rm -rf %{buildroot}
 %make_install
 
 %remove_docs
 
 %files
+/usr/share/license/%{name}
 %manifest rfkill.manifest
 %defattr(-,root,root,-)
 /usr/sbin/rfkill
